@@ -46,7 +46,7 @@ groundy=20
 damage=20
 screen_width=screen.get_width()
 screen_height=screen.get_height()
-drag_ob_inf=[0,0]
+drag_item=None
 
 # оптимизация(берем не все блоки, а только рядом)
 def get_colliding_blocks(player_rect):
@@ -140,8 +140,6 @@ class Ghost:
             self.x+=1
 
         self.animations[self.state].update()
-
-old_place=[]
 
 class Player:
     def __init__(self,x,y,speed):
@@ -345,28 +343,15 @@ while True:
                             inventory.add_type(lev_load.blocks[(x_ts,y_ts)]['type'])
                             del lev_load.blocks[(x_ts,y_ts)]
             else:           #перемещение блоков в инв
-
-                for i in inventory.items:
-                    if i.count_res>0 and i.get_hitbox().collidepoint(pos):
-                            old_place=[i.xt,i.yt]
-                            drag_ob_inf=[
-                                i.name_res,
-                                i.count_res
-                            ]
+                selected_item=inventory.get_item_at_pos(pos)
+                if selected_item is not None and selected_item.count_res>0:
+                    drag_item=selected_item
 
         if event.type==pygame.MOUSEBUTTONUP and event.button==1:
-            if inventory.inv_state:
-                for i in inventory.items:
-                    if drag_ob_inf!=[]:
-                        if i.count_res==0 and i.get_hitbox().collidepoint(pos):
-                            i.name_res=drag_ob_inf[0]
-                            i.count_res=drag_ob_inf[1]
-                            print(drag_ob_inf)
-                            drag_ob_inf=[]
-                            print("ok")
-
-                        if i.xt==old_place[0] and i.yt==old_place[1]:
-                            i.count_res=0
+            if inventory.inv_state and drag_item is not None:
+                target_item=inventory.get_item_at_pos(pos)
+                inventory.move_item(drag_item, target_item)
+                drag_item=None
 
     # юзание оптимизации
     render_damaged_blocks(screen,camerax,cameray)
