@@ -11,13 +11,13 @@ import os
 
 def load():
     global blocks,camerax,cameray,pix
-    f=open('D:/history/minecraft2D/editor/levels/level1','rb')
+    f=open('editor/levels/level1','rb')
     load_game=pickle.load(f)
     blocks=load_game[0]
     camerax=load_game[1][0]
     cameray=load_game[1][1]
     f.close()
-    pix=pygame.image.load('D:/history/minecraft2D/pixare.png')
+    pix=pygame.image.load('pixare.png')
     pix=pygame.transform.flip(pix,True,False)
     pygame.mouse.set_visible(False) 
 

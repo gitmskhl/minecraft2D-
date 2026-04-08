@@ -9,12 +9,12 @@ inv_n=0
 
 def init_inventory():
     global inventory,grass,rock,items 
-    inventory=cfiles.loadimagesize('D:/history/minecraft2D/inventory.jpg',1468,713)
+    inventory=cfiles.loadimagesize('inventory.jpg',1468,713)
     
-    grass=pygame.image.load('D:/history/minecraft2D/editor/imgs/1 Tiles/Tile_18.png')
+    grass=pygame.image.load('editor/imgs/1 Tiles/Tile_18.png')
     grass=pygame.transform.scale(grass,[lev_load.tile_sizes*1.7,lev_load.tile_sizes*1.7])
     
-    rock=pygame.image.load('D:/history/minecraft2D/editor/imgs/1 Tiles/Tile_30.png')
+    rock=pygame.image.load('editor/imgs/1 Tiles/Tile_30.png')
     rock=pygame.transform.scale(rock,[lev_load.tile_sizes*1.7,lev_load.tile_sizes*1.7])
 
     for i in range(36):

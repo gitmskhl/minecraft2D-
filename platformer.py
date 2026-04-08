@@ -15,29 +15,29 @@ clock=pygame.time.Clock()
 
 # кеш для стадий разрушения
 block_stages_cache={}
-block_stage1=cfiles.loadimagesize('D:/history/minecraft2D/break_blocks/блоки-removebg-preview 1.png',80,80)
-block_stage2=cfiles.loadimagesize('D:/history/minecraft2D/break_blocks/блоки-removebg-preview 2.png',80,80)
-block_stage3=cfiles.loadimagesize('D:/history/minecraft2D/break_blocks/блоки-removebg-preview 3 .png',80,80)
-block_stage4=cfiles.loadimagesize('D:/history/minecraft2D/break_blocks/блоки-removebg-preview 4.png',80,80)
+block_stage1=cfiles.loadimagesize('break_blocks/блоки-removebg-preview 1.png',80,80)
+block_stage2=cfiles.loadimagesize('break_blocks/блоки-removebg-preview 2.png',80,80)
+block_stage3=cfiles.loadimagesize('break_blocks/блоки-removebg-preview 3 .png',80,80)
+block_stage4=cfiles.loadimagesize('break_blocks/блоки-removebg-preview 4.png',80,80)
 
 block_stages_cache[20]=block_stage4
 block_stages_cache[40]=block_stage3
 block_stages_cache[60]=block_stage2
 block_stages_cache[80]=block_stage1
 
-idle=cfiles.getcutpic('D:/craftpix-net-622999-free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Idle_4.png', 4, 3)
-walk=cfiles.getcutpic('D:/craftpix-net-622999-free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Walk_6.png', 6, 3)
-run=cfiles.getcutpic('D:/craftpix-net-622999-free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_run_6.png', 6, 3)
-jump=cfiles.getcutpic('D:/craftpix-net-622999-free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Jump_8.png', 8, 3)
+idle=cfiles.getcutpic('craftpix-net-622999-free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Idle_4.png', 4, 3)
+walk=cfiles.getcutpic('craftpix-net-622999-free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Walk_6.png', 6, 3)
+run=cfiles.getcutpic('craftpix-net-622999-free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_run_6.png', 6, 3)
+jump=cfiles.getcutpic('craftpix-net-622999-free-pixel-art-tiny-hero-sprites/1 Pink_Monster/Pink_Monster_Jump_8.png', 8, 3)
 onground=True
 
-background=cfiles.loadimagesize('D:/history/minecraft2D/background.jpg', screen.get_width(), screen.get_height())
+background=cfiles.loadimagesize('background.jpg', screen.get_width(), screen.get_height())
 
-gidle=cfiles.getcutpic('D:/history/minecraft2D/2plan/2 Owlet_Monster/Owlet_Monster_Idle_4.png',4,3)
-gwalk=cfiles.getcutpic('D:/history/minecraft2D/2plan/2 Owlet_Monster/Owlet_Monster_Walk_6.png',6,3)
-grun=cfiles.getcutpic('D:/history/minecraft2D/2plan/2 Owlet_Monster/Owlet_Monster_Run_6.png',6,3)
-gjump=cfiles.getcutpic('D:/history/minecraft2D/2plan/2 Owlet_Monster/Owlet_Monster_Jump_8.png',8,3)
-pix=cfiles.getcutpic('D:/history/minecraft2D/pixare.png',1,0.1)
+gidle=cfiles.getcutpic('2plan/2 Owlet_Monster/Owlet_Monster_Idle_4.png',4,3)
+gwalk=cfiles.getcutpic('2plan/2 Owlet_Monster/Owlet_Monster_Walk_6.png',6,3)
+grun=cfiles.getcutpic('2plan/2 Owlet_Monster/Owlet_Monster_Run_6.png',6,3)
+gjump=cfiles.getcutpic('2plan/2 Owlet_Monster/Owlet_Monster_Jump_8.png',8,3)
+pix=cfiles.getcutpic('pixare.png',1,0.1)
 
 # все сразу
 tile_sizes=80
