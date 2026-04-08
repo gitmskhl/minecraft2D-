@@ -38,7 +38,7 @@ leaf_tex=pygame.image.load('leaf_tex.png')
 
 blocks={}
 
-for i in os.listdir('editor/imgs/1 Tiles'):
+for i in sorted(os.listdir('editor/imgs/1 Tiles')):
     image=pygame.image.load('editor/imgs/1 Tiles/'+i)
     image=pygame.transform.scale(image,[tile_sizes,tile_sizes])
     resourses.append(image)
@@ -89,7 +89,7 @@ def change_size():
     image4=pygame.transform.scale(image4,[tile_sizes,tile_sizes])  
 
 
-    for i in os.listdir('editor/imgs/1 Tiles'):
+    for i in sorted(os.listdir('editor/imgs/1 Tiles')):
         image=pygame.image.load('editor/imgs/1 Tiles/'+i)
         image=pygame.transform.scale(image,[tile_sizes,tile_sizes])
         resourses.append(image)

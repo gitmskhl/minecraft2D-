@@ -23,7 +23,7 @@ def load():
 
 resourses=[]
 tile_sizes=80
-for i in os.listdir('editor/imgs/1 Tiles'):
+for i in sorted(os.listdir('editor/imgs/1 Tiles')):
     image=pygame.image.load('editor/imgs/1 Tiles/'+i)
     image=pygame.transform.scale(image,[tile_sizes,tile_sizes])
     
