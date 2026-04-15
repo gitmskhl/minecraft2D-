@@ -346,11 +346,13 @@ while True:
                 selected_item=inventory.get_item_at_pos(pos)
                 if selected_item is not None and selected_item.count_res>0:
                     drag_item=selected_item
+                    drag_item.moving = True
 
         if event.type==pygame.MOUSEBUTTONUP and event.button==1:
             if inventory.inv_state and drag_item is not None:
                 target_item=inventory.get_item_at_pos(pos)
                 inventory.move_item(drag_item, target_item)
+                drag_item.moving = False
                 drag_item=None
 
     # юзание оптимизации

@@ -37,14 +37,32 @@ class Item:
         self.screen=screen
         self.count_res=count_res
         self.font=pygame.font.Font(None, 24)
+        self.moving = False
+
 
     def render(self):
         if self.count_res == 0 or self.name_res is None or self.name_res not in res_cache:
             return
-        self.screen.blit(res_cache[self.name_res], [70+self.xt*W, 38+self.yt*H])
-        text = self.font.render(str(self.count_res), True, (255, 255, 255))
-        self.screen.blit(text, [self.xt * W + 100, self.yt * H + 100])
+        if self.moving:
+            res_cache[self.name_res].set_alpha(100)
+            mpos = pygame.mouse.get_pos()
+            res_x = mpos[0] - res_cache[self.name_res].get_width() // 2
+            res_y = mpos[1] - res_cache[self.name_res].get_height() // 2
+            self.screen.blit(res_cache[self.name_res], (res_x, res_y))
+            res_cache[self.name_res].set_alpha(255)
+            text = self.font.render(str(self.count_res), True, (255, 255, 255))
+            self.screen.blit(text, (res_x + 30, res_y + 62))
+        else:    
+            self.screen.blit(res_cache[self.name_res], self._get_pos())
+            text = self.font.render(str(self.count_res), True, (255, 255, 255))
+            self.screen.blit(text, [self.xt * W + 100, self.yt * H + 100])
     
+    def _get_pos(self):
+        if self.yt < 3:
+            return 70+self.xt*W, 38+self.yt*H
+        else:
+            return 70+self.xt*W, 38+self.yt*H + 33
+
     def update(self):
         pass
 
@@ -63,7 +81,7 @@ class Item:
                             rock.get_width(),
                             rock.get_height())
         return hitbox
-
+    
 def render(screen):
     if inv_state == True:
         screen.blit(inventory, [10, 10])
